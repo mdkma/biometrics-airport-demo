@@ -1,0 +1,169 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#00AA8D">
+
+  <title>Crowdsourcing Platform</title>
+
+  <link rel="manifest" href="manifest.json">
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,700">
+
+  <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="bower_components/paper-input/paper-input.html">
+  <link rel="import" href="bower_components/paper-button/paper-button.html">
+
+  <link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
+  <link rel="import" href="bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+  <link rel="import" href="bower_components/app-layout/app-header/app-header.html">
+
+  <style is="custom-style">
+
+    :root {
+      --paper-font-common-base: {
+        font-family: Raleway, sans-serif;
+      };
+    }
+
+     body {
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      background-color: #eee;
+    }
+    .item {
+      width: 85%;
+    }
+
+    app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: #fff;
+      background-color: #00AA8D;
+    }
+
+    paper-icon-button {
+      --paper-icon-button-ink-color: white;
+    }
+
+    paper-fab {
+      position: absolute;
+      right: 16px;
+      top: 248px;
+      will-change: transform;
+      transition: 0.1s -webkit-transform;
+      transition: 0.1s transform;
+      --paper-fab-background: #EF5458;
+      --paper-fab-keyboard-focus-background: #DF4448;
+    }
+
+    paper-fab.shrink-to-hidden {
+      -webkit-transform: scale3d(0, 0, 0);
+      transform: scale3d(0, 0, 0);
+    }
+
+    app-toolbar.middle {
+      height: 200px;
+    }
+
+    .middle-logo{
+      height:120px;
+      padding-bottom: 43px;
+    }
+
+    app-toolbar.bottom {
+      height: 92px;
+    }
+
+    sample-content {
+      padding-top: 276px;
+    }
+
+    [main-title] {
+      position: absolute;
+      margin-left: 164px;
+      font-size: 32px;
+      font-weight: 300;
+      /*background-image: url('data/img/logo_l.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 240px;*/
+    }
+
+    [condensed-title] {
+      margin-left: 20px;
+      font-weight: 300;
+      /*background-image: url('data/img/logo_m.png');
+      background-size: 90px;*/
+    }
+
+    paper-button.green {
+	    background-color: #00AA8D;
+	    color: white;
+	    --paper-button-raised-keyboard-focus: {
+	      background-color: #EF5458 !important;
+	      color: white !important;
+	    };
+	  }
+
+  </style>
+
+</head>
+<body>
+
+   <app-header effects="waterfall resize-title blend-background parallax-background" condenses reveals>
+    <app-toolbar>
+      <div condensed-title></div>
+    </app-toolbar>
+    <app-toolbar class="middle">
+    </app-toolbar>
+    <app-toolbar class="bottom">
+      <img src="data/img/logo_l.png" class="middle-logo">
+      <div main-title>Join Now</div>
+    </app-toolbar>
+  </app-header>
+
+  <paper-fab icon="icons:arrow-forward"></paper-fab>
+
+  <form is="iron-form" id="submitForm" class="item footer fixed-bottom mb-3 container">
+    <div class="row justify-content-center">
+		  <paper-input name="email" label="Your Email" auto-validate pattern=".+[@].+[.].+" error-message="Please input a valid email!"></paper-input>
+    </div>
+    <div class="row justify-content-center">
+      <paper-input name="password" label="Password" type="password"></paper-input>
+    </div>
+		<paper-button raised id="submitButton" class="row" onclick="login()" class="custom green mt-3 ml-3">Sign In</paper-button>
+	</form>
+
+  <script>
+    var fab = document.querySelector('paper-fab');
+    var header = document.querySelector('app-header');
+
+    window.addEventListener('scroll', function() {
+      var progress = header.getScrollState().progress;
+      fab.toggleClass('shrink-to-hidden', progress > 0.5);
+    });
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="js/base.js" type="text/javascript" chatset="utf-8"></script>
+</body>
+</html>

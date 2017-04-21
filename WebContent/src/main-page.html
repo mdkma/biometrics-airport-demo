@@ -1,0 +1,403 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-icons/social-icons.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
+
+<dom-module id="main-page">
+  <template>
+
+    <style>
+
+    body {
+      background-color: #999;
+    }
+
+    app-header {
+      color: #fff;
+      background-color: #00AA8D;
+    }
+
+    app-toolbar {
+      height: 120px;
+    }
+
+    [condensed-title] {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-image: url('../data/img/logo_m.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 90px;
+
+      /* The difference in font size is used to calculate the scale of the title in the transition. */
+      font-size: 16px;
+    }
+
+    [main-title] {
+      position: absolute;
+      top: -120px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-image: url('../data/img/logo_l.png');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 240px;
+      -webkit-transform-origin: center top !important;
+      transform-origin: center top !important;
+
+      /* The difference in font size is used to calculate the scale of the title in the transition. */
+      font-size: 32px;
+    }
+
+    .content {
+      display: block;
+      position: relative;
+      max-width: 1000px;
+      margin: 5px auto;
+    }
+
+    .card-container {
+      color: black;
+      text-decoration: none;
+    }
+
+    .small-profile-img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+
+    .black-text {
+      color: black;
+    }
+
+    paper-card {
+      display: block;
+
+      --paper-card-header-image: {
+        height: 200px;
+      }
+    }
+
+    paper-card h2 {
+      margin: 4px;
+      font-weight: normal;
+    }
+
+    paper-card p {
+      margin: 4px;
+      color: #999;
+    }
+
+    paper-fab {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+
+      --paper-fab-background: #EF5458;
+      --paper-fab-keyboard-focus-background: #DF4448;
+    }
+
+    @media (max-width: 960px) {
+      .content {
+        max-width: 800px;
+      }
+
+      .card-container {
+        width: 50%;
+      }
+    }
+
+    @media (max-width: 719px) {
+      app-toolbar {
+        height: 60px;
+      }
+
+      [condensed-title] {
+        background-image: url('../data/img/logo_s.png');
+        background-size: 120px;
+      }
+
+      [main-title] {
+        top: -60px;
+        background-image: url('../data/img/logo_m.png');
+        background-size: 110px;
+      }
+
+      .content {
+        max-width: 400px;
+      }
+
+    }
+
+    .thin {
+      font-size:3em;
+      font-weight:200;
+    }
+
+    .sub-thin{
+      font-size:2em;
+      font-weight:200;
+    }
+
+    paper-button.green {
+	    background-color: #00AA8D;
+	    color: white;
+	    --paper-button-raised-keyboard-focus: {
+	      background-color: #EF5458 !important;
+	      color: white !important;
+	    };
+	  }
+
+    .color1 {
+      --paper-card-background-color: #F44336;
+    }
+
+    .color2 {
+      --paper-card-background-color: #9C27B0;
+    }
+    .color3 {
+      --paper-card-background-color: #795548;
+    }
+    .color4 {
+      --paper-card-background-color: #4CAF50;
+    }
+    .color5 {
+      --paper-card-background-color: #E91E63;
+    }
+    .color6 {
+      --paper-card-background-color: #3F51B5;
+    }
+    .color7 {
+      --paper-card-background-color: #673AB7;
+    }
+    .color8 {
+      --paper-card-background-color: #009688;
+    }
+    .color9 {
+      --paper-card-background-color: #00BCD4;
+    }
+    .loading-notice{
+      margin-top: 13em;
+    }
+    .hardcode1 {
+      width: 85%;
+    }
+    .page-three-content {
+      margin-top: 8em;
+    }
+
+    .b-toolbar{
+      height: 3em;
+    }
+
+    .profile-img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
+
+    </style>
+
+    <style is="custom-style">
+      paper-card.question { @apply(--layout-horizontal); }
+      .q-image {
+        width: 100px;
+        height: 170px;
+        background-size: cover;
+      }
+      .q-content {
+        @apply(--layout-flex);
+        float: left;
+      }
+      .q-header { @apply(--paper-font-headline); }
+      .q-name { color: var(--paper-grey-600); margin: 10px 0; }
+      }
+    </style>
+
+    <!-- main panel -->
+    <app-header-layout>
+
+      <app-header effects="resize-title" condenses fixed shadow>
+        <app-toolbar class="top-toolbar">
+          <content select="[drawer-toggle]"></content>
+          <div condensed-title></div>
+        </app-toolbar>
+        <app-toolbar class="bottom-toolbar">
+          <div main-title></div>
+        </app-toolbar>
+      </app-header>
+
+      <div class="content">
+        <iron-pages selected="0" class="question-page">
+          <div>
+            <div class="thin ml-2 mt-3 mb-3">Choose a Category</div>
+            <div class="container">
+              <div class="row">
+                <a href="javascript:next();" class="card-container col mb-3 mt-2">
+                  <paper-card heading="Chinese" class="color1">
+                    <iron-icon icon="social:people" class="mb-3 ml-2"></iron-icon>35 Tutors Online
+                  </paper-card>
+                </a>
+                <a href="javascript:next();" class="card-container col mb-3 mt-2">
+                  <paper-card heading="English" class="color2">
+                    <iron-icon icon="social:people" class="mb-3 ml-2"></iron-icon>46 Tutors Online
+                  </paper-card>
+                </a>
+              </div>
+              <div class="row">
+                <a href="javascript:next();" class="card-container col mb-3 mt-2">
+                  <paper-card heading="ICT" class="color3">
+                    <iron-icon icon="social:people" class="mb-3 ml-2"></iron-icon>65 Tutors Online
+                  </paper-card>
+                </a>
+                <a href="javascript:next();" class="card-container col mb-3 mt-2">
+                  <paper-card heading="Biology" class="color4">
+                    <iron-icon icon="social:people" class="mb-3 ml-2"></iron-icon>24 Tutors Online
+                  </paper-card>
+                </a>
+              </div>
+              <div class="row">
+                <a href="javascript:next();" class="card-container col mb-3 mt-2">
+                  <paper-card heading="Math" class="color5">
+                    <iron-icon icon="social:people" class="mb-3 ml-2"></iron-icon>33 Tutors Online
+                  </paper-card>
+                </a>
+                <a href="javascript:next();" class="card-container col mb-3 mt-2">
+                  <paper-card heading="Chemestry" class="color6">
+                    <iron-icon icon="social:people" class="mb-3 ml-2"></iron-icon>31 Tutors Online
+                  </paper-card>
+                </a>
+              </div>
+              <div class="row">
+                <a href="javascript:next();" class="card-container col mb-3 mt-2">
+                  <paper-card heading="History" class="color7">
+                    <iron-icon icon="social:people" class="mb-3 ml-2"></iron-icon>13 Tutors Online
+                  </paper-card>
+                </a>
+                <a href="javascript:next();" class="card-container col mb-3 mt-2">
+                  <paper-card heading="Physic" class="color8">
+                    <iron-icon icon="social:people" class="mb-3 ml-2"></iron-icon>19 Tutors Online
+                  </paper-card>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <template is="dom-repeat" items="{{recipes}}"><!-- No empty text node
+            --><a href="javascript:next_interval();" class="card-container">
+                <paper-card class="question">
+                <div class="q-content">
+                    <div class="card-content">
+                    <div class="q-header">{{item.name}}</div>
+                    <div class="q-name">
+                        <img src={{item.authorImageUrl}} class="small-profile-img">
+                        {{item.author}}
+                    </div>
+                    <div><strong>{{item.category}}</strong></div>
+                    <div>{{item.description}}</div>
+                    </div>
+                </div>
+                <img src="{{item.imageUrl}}" class="q-image"></div>
+                </paper-card>
+            </a><!-- No empty text node
+            --></template>
+          </div>
+          <div class="container loading-notice justify-content-center">
+            <div class="row justify-content-center">
+              <paper-spinner active></paper-spinner>
+            </div>
+            <div class="row justify-content-center">
+              <p>Matching...</p>
+            </div>
+          </div>
+          <div class="container page-three-content">
+            <div class="row justify-content-center">
+              <p>Your Student</p>
+            </div>
+            <div class="row justify-content-center">
+              <div class="display-3">Derek Ma</div>
+            </div>
+            <div class="row justify-content-center mt-3">
+              <paper-button raised id="submitButton1" onclick="next()" class="custom green mt-3 ml-3">Start Session</paper-button>
+            </div>
+          </div>
+          <div class="container">
+            <div class="mt-3 row justify-content-start align-items-center bg-faded">
+              <img src="../data/img/profile_derek.jpg" class="mt-3 ml-2 mr-2 profile-img img-fluid">
+              <p>Hi! Janus! I'm Derek.</p>
+            </div>
+
+            <form is="iron-form" id="sendForm" class="b-toolbar footer bg-faded fixed-bottom mb-3 container">
+              <div class="row">
+                <paper-input name="input" class="col-9"></paper-input>
+                <paper-icon-button onclick="next()" icon="icons:send" class="col-3"></paper-icon-button>
+              </div>
+            </form>
+          </div>
+        </iron-pages>
+      </div>
+
+    </app-header-layout>
+
+  </template>
+
+  <script>
+
+  Polymer({
+
+    is: 'main-page',
+
+    properties: {
+      recipes: Object
+    }
+
+  });
+
+  function next (){
+    var pages = document.querySelector('.question-page');
+    pages.selectNext();
+  }
+
+  function next_interval(){
+    next();
+    setTimeout(next, 6000);
+  }
+
+  function next_sentence(){
+    next();
+    setTimeout(next, 2000);
+  }
+
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+</dom-module>

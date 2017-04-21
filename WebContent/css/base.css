@@ -1,0 +1,84 @@
+/* ================================= 
+  Base Element Styles
+==================================== */
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	font-family: 'Roboto', sans-serif;
+	height: 100%;
+}
+
+/* ================================= 
+  Base Layout Styles
+==================================== */
+
+/* ---- Layout Containers ---- */
+.header,
+.header-inside {
+	height:6.5em;
+}
+
+.head-bar {
+	background: #fff;
+    -webkit-box-shadow: 0 2px 4px 0px #999;
+    -moz-box-shadow: 0 2px 4px 0px #999;
+    box-shadow: 0 2px 4px 0px #999;
+}
+
+.bg-frame {
+	height:100vh;
+	background: url("../img/bg.svg") no-repeat center center fixed;
+	background-size: cover;
+}
+
+.show-frame {
+}
+
+.show-box {
+	width: 95%;
+}
+
+.show-box-card {
+	background: #fff;
+	-webkit-box-shadow: 0 1px 2px 0px #999;
+    -moz-box-shadow: 0 1px 2px 0px #999;
+    box-shadow: 0 1px 2px 0px #999;
+}
+
+.select-tabs {
+	background: #3f51b5;
+}
+
+
+/* ---- Elements ----- */
+button.no-style {
+  	-webkit-appearance: none;
+    border: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.thin {
+	font-size:3em;
+	font-weight:200;
+}
+
+.sub-thin{
+	font-size:2em;
+	font-weight:200;
+}
+
+.footer{
+	width: 100%;
+	text-align: center;
+}
+
+.record:hover {
+	background: #fff;
+}
+
+/* ================================= 
+  Media Queries
+==================================== */
