@@ -28,6 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="import" href="bower_components/paper-fab/paper-fab.html">
   <link rel="import" href="bower_components/paper-input/paper-input.html">
   <link rel="import" href="bower_components/paper-button/paper-button.html">
+  <link rel="import" href="bower_components/paper-card/paper-card.html">
 
   <link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
   <link rel="import" href="bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
@@ -123,34 +124,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	    };
 	  }
 
+    .thin {
+      font-size:3em;
+      font-weight:200;
+    }
+
+    paper-card {
+	  	max-width: 100%;
+    }
+    paper-card:hover {
+      @apply(--shadow-elevation-16dp);
+    }
+
   </style>
 
 </head>
 <body>
+  <div class="container">
+    <p class="thin">Please choose service</p>
 
-   <app-header effects="waterfall resize-title blend-background parallax-background" condenses reveals>
-    <app-toolbar>
-      <div condensed-title></div>
-    </app-toolbar>
-    <app-toolbar class="middle">
-    </app-toolbar>
-    <app-toolbar class="bottom">
-      <img src="data/img/logo_l.png" class="middle-logo">
-      <div main-title>Join Now</div>
-    </app-toolbar>
-  </app-header>
-
-  <paper-fab icon="icons:arrow-forward"></paper-fab>
-
-  <form is="iron-form" id="submitForm" class="item footer fixed-bottom mb-3 container">
-    <div class="row justify-content-center">
-		  <paper-input name="email" label="Your Email" auto-validate pattern=".+[@].+[.].+" error-message="Please input a valid email!"></paper-input>
+    <div class="row">
+      <div class="choice col-4">
+        <a href="checkin.html">
+          <paper-card heading="Check In" image="data/airticket.png" alt="Check In" class="white" animated-shadow>
+          </paper-card>
+        </a>
+      </div>
+      <div class="choice col-4">
+        <paper-card heading="Luggage Drop" image="data/airticket.png" alt="Check In" class="white" animated-shadow>
+        </paper-card>
+      </div>
+      <div class="choice col-4">
+        <paper-card heading="Immigration" image="data/airticket.png" alt="Check In" class="white" animated-shadow>
+        </paper-card>
+      </div>
     </div>
-    <div class="row justify-content-center">
-      <paper-input name="password" label="Password" type="password"></paper-input>
-    </div>
-		<paper-button raised id="submitButton" class="row" onclick="login()" class="custom green mt-3 ml-3">Sign In</paper-button>
-	</form>
+
+   <div class="footer fixed-bottom mb-3 text-center">Face Recognition and Palmprint Application at Airports. <a href="https://github.com/derekmma/biometrics-airport-demo">Use the code.</a></div>
+  </div>
 
   <script>
     var fab = document.querySelector('paper-fab');
