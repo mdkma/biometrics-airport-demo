@@ -208,7 +208,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <img src="data/hand.png" class="img-fluid mt-3">
                 </div>
             </div>
-            <paper-fab icon="icons:home"></paper-fab>
+            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
         </div>
         <div class="container loading-notice">
             <div class="row justify-content-center">
@@ -217,7 +217,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <div class="row justify-content-center">
               <p class="sub-thin">Scan successfully! Looking for your data...</p>
             </div>
-            <paper-fab icon="icons:home"></paper-fab>
+            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
         </div>
         <div class="container">
             <div class="row">
@@ -242,7 +242,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     </paper-card>
                 </div>
             </div>
-            <paper-fab icon="icons:home"></paper-fab>
+            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
         </div>
         <div class="container">
             <div class="row">
@@ -256,7 +256,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <p class="thin mt-3">Processing...</p>
                 </div>
             </div>
-            <paper-fab icon="icons:home"></paper-fab>
+            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
         </div>
         <div class="container">
             <div class="row">
@@ -269,7 +269,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     <p class="thin mt-3">Checked In.</p>
                 </div>
             </div>
-            <paper-fab icon="icons:home"></paper-fab>
+            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
         </div>
         <!--
         <div class="container">
@@ -330,6 +330,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
   <script>
+
+  function returnHome (){
+    location.href = 'index.html';
+  }
 
   function next (){
     var pages = document.querySelector('.question-page');
