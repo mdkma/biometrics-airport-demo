@@ -190,6 +190,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       margin-top: 8em;
     }
 
+    .page-3-text{
+      margin-top: 2em;
+    }
+
     paper-card.flight{
         margin-top: 3em;
         width: 100%;
@@ -202,79 +206,106 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <app-header reveals shadow>
         <app-toolbar>
             <div main-title>Sign Up</div>
-            <p class="path">Register Face Information > Register Palm Information > Done</p>
+            <p class="path">Verify Passport > Register Palm Information > Register Face Information > Done</p>
         </app-toolbar>
     </app-header>
     <iron-pages selected="0" class="pages">
         <div class="container">
             <div class="row">
                 <div class="col-6">
-                    <p class="thin page-1-text">Look at the camera <br>and put your hand <br>on the palmprint scanner</p>
+                    <p class="thin page-1-text">Verify Your Passport</p>
+                    <p class="sub-thin">Place your passport on document scanner</p>
                 </div>
                 <div class="col-6 mt-3">
-                    <img src="data/hand.png" class="img-fluid mt-3">
+                    <img src="data/passport2.png" class="img-fluid mt-3">
                 </div>
             </div>
             <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
         </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <p class="thin page-1-text">Verify Your Passport</p>
+                    <paper-spinner active></paper-spinner>
+                    <p class="sub-thin">Scanning your passport...</p>
+                </div>
+                <div class="col-6 mt-3">
+                    <img src="data/passport2.png" class="img-fluid mt-3">
+                </div>
+            </div>
+            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 page-3-text">
+                    <img src="data/profile_derek.jpg" class="profile-img">
+                    <p class="sub-thin mt-3">Hi, Mr. Derek</p>
+                    <p class="thin mt-3">Collect Your Palmprint</p>
+                    <p class="sub-thin">Place your hand on scanner <br>Sample 1/3</p>
+                </div>
+                <div class="col-6 mt-3">
+                    <img src="data/palmprint.svg" class="img-fluid mt-3">
+                </div>
+            </div>
+            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 page-3-text">
+                    <img src="data/profile_derek.jpg" class="profile-img">
+                    <p class="sub-thin mt-3">Hi, Mr. Derek</p>
+                    <p class="thin mt-3">Collect Your Right Hand Palmprint</p>
+                    <p class="sub-thin">Place your right hand on scanner <br>Sample 2/3</p>
+                </div>
+                <div class="col-6 mt-3">
+                    <img src="data/palmprint.svg" class="img-fluid mt-3">
+                </div>
+            </div>
+            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 page-3-text">
+                    <img src="data/profile_derek.jpg" class="profile-img">
+                    <p class="sub-thin mt-3">Hi, Mr. Derek</p>
+                    <p class="thin mt-3">Collect Your Right Hand Palmprint</p>
+                    <p class="sub-thin">Place your right hand on scanner <br>Sample 3/3</p>
+                </div>
+                <div class="col-6 mt-3">
+                    <img src="data/palmprint.svg" class="img-fluid mt-3">
+                </div>
+            </div>
+            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 page-3-text">
+                    <img src="data/profile_derek.jpg" class="profile-img">
+                    <p class="sub-thin mt-3">Hi, Mr. Derek</p>
+                    <p class="thin mt-3">Collect Your Face Information</p>
+                    <p class="sub-thin">Please look at the camera</p>
+                </div>
+                <div class="col-6 mt-3">
+                    <img src="data/facerecord.jpg" class="img-fluid mt-3">
+                </div>
+            </div>
+            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
+        </div>
+
+
+
         <div class="container loading-notice">
             <div class="row justify-content-center">
               <paper-spinner active></paper-spinner>
             </div>
             <div class="row justify-content-center">
-              <p class="sub-thin">Scan successfully! Looking for your data...</p>
+              <p class="sub-thin">Saving your biometrics information and personal information to encrypted database...</p>
             </div>
             <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-6 page-1-text">
-                    <img src="data/profile_derek.jpg" class="profile-img">
-                    <p class="thin mt-3">Welcome, Mr. Derek</p>
-                    <p>Green Card Member of Cathay Pacific</p>
-                </div>
-                <div class="col-6">
-                    <paper-card image="data/plane.jpg" heading="CX388, HKG-JFK" class="flight">
-                        <div class="card-content">
-                            <p>Cathay Pacific</p>
-                            <p>Take off: 14:25, 1 May, 2017</p>
-                            <p>Estimated landing: 17:25, 2 May, 2017</p>
-                        </div>
-                        <div class="card-actions">
-                            <paper-button>
-                                <iron-icon icon="icons:arrow-forward"></iron-icon>
-                                Confirm Check In
-                            </paper-button>
-                        </div>
-                    </paper-card>
-                </div>
-            </div>
-            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-6 page-1-text">
-                    <img src="data/profile_derek.jpg" class="profile-img">
-                    <p class="thin mt-3">Welcome, Mr. Derek</p>
-                    <p>Green Card Member of Cathay Pacific</p>
-                </div>
-                <div class="col-6 page-2-text">
-                    <paper-spinner active></paper-spinner>
-                    <p class="thin mt-3">Processing...</p>
-                </div>
-            </div>
-            <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-6 page-1-text">
-                    <img src="data/profile_derek.jpg" class="profile-img">
-                    <p class="thin mt-3">Welcome, Mr. Derek</p>
-                    <p>Green Card Member of Cathay Pacific</p>
-                </div>
-                <div class="col-6 page-2-text">
-                    <p class="thin mt-3">Checked In.</p>
-                </div>
+        <div class="container loading-notice">
+            <div class="row justify-content-center">
+              <p class="thin">Sign Up Successfully! Thanks.</p>
             </div>
             <paper-fab icon="icons:home" onclick="returnHome()"></paper-fab>
         </div>
