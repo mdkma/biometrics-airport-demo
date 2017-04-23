@@ -17,7 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <title>Sign Up - Biometrics@Airport</title>
 
-    <link rel="import" href="bower_components/polymer/polymer.html">
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     <link rel="import" href="bower_components/paper-fab/paper-fab.html">
@@ -68,6 +68,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       /* The difference in font size is used to calculate the scale of the title in the transition. */
       font-size: 32px;
+    }
+
+    .path {
+      position: absolute;
+      top:20px;
+      right:100px;
     }
 
     
@@ -196,6 +202,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <app-header reveals shadow>
         <app-toolbar>
             <div main-title>Sign Up</div>
+            <p class="path">Register Face Information > Register Palm Information > Done</p>
         </app-toolbar>
     </app-header>
     <iron-pages selected="0" class="pages">
