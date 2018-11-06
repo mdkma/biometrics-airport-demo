@@ -2,13 +2,10 @@
 
 Derek Mingyu MA  
 [derek.ma](http://derek.ma)  
-[bio.derek.ma](http://bio.derek.ma/)
 
 A Java EE Web App that shows the usage of face recognition and palmprint identification technologies in airports.
 
 Only adapt to wide screen devices, such as laptops, PCs and Macs.
-
-This web app is deployed at [bio.derek.ma](http://bio.derek.ma).
 
 ## How to Use
 
